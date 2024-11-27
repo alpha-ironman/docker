@@ -21,6 +21,8 @@ docker inspect image _imagename_ - will give all information about that image(To
 docker create _imagename_ - will create container  
 docker create --name _customname_ _imagename_ - wil create a container with custom name of that image  
 docker run --name _customname_ _imagename_ - will create and run the container (create + start), in This bydefault user will get intot the container  
-docker run -d _--name _customname__ __imagename_ _- will create and run the container in detached mode  
+docker run -d --name _customname_ _imagename_ - will create and run the container in detached mode  
 docker kill __containername/containerid_ _- will kill the container *Forceful shutdonw"  
 docker rm containerid/container name - will delete that container  
+docker network ls - list of networks  
+
