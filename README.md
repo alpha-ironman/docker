@@ -49,10 +49,6 @@ docker run -it --name _containername_ -v "$(pwd)":/foldername imagename - will m
 
 
 
-
-
-
-
 **DOCKERFILE commands**
 **FROM** - Defines the base image used to start the buid process  
 **ADD** - Copies the files from a source on the host into the container's own filesystem at the set destination  
@@ -69,4 +65,26 @@ docker run -it --name _containername_ -v "$(pwd)":/foldername imagename - will m
 **LABEL** -  allows you to add a label to your docker image
 
 
+**Docker Compose**
+Docker Compose is a tool that allows you to define and run multi-container docker applications.
 
+It allows you to define the services, networks and volumes that make up your application in a declarative YAML File, which can then be used to spin up and manage the containers taht make up your application.  
+
+Using Docker Compose, yu can define a grop of related services that can be run together in a single environment, making it easier to manager complex applications with multiple components. for example you can define a web application with a web server, a databse and a chaching layer as seperate services, each running in its own container  
+
+sudo apt install docker-compose - Install docker-compose  
+docker-compose --version - tells the version    
+
+service  
+  restart  
+  image  
+  build  
+    context  
+    dockerfile  
+  container_name  
+  volumes  
+  ports  
+  depends_on  
+  environment  
+  networks  
+  
