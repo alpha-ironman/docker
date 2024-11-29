@@ -25,6 +25,8 @@ docker run --name _customname_ _imagename_ - will create and run the container (
 docker run -d --name _customname_ _imagename_ - will create and run the container in detached mode  
 docker kill __containername/containerid_ _- will kill the container *Forceful shutdonw"  
 docker rm containerid/container name - will delete that container  
+docker rename oldcontainername newcontainername - will rename the conatiner  
+
 
 docker network ls - list of networks  
 docker run -d --name customname -p _deviceport:containerport_ _imagename_ - will create the continer with the particular name and keep the traffic to come through port 80 of container and port 8080 of host machine  
@@ -87,4 +89,19 @@ service
   depends_on  
   environment  
   networks  
-  
+
+
+**Troubleshooting containers**
+docker logs _containername_  
+docker exec -it containername/containerid sh  - will gets you into container  
+_Restart Policies:_
+
+1) **NO** - The default behavior is to not start conatiners automatically
+2) **always** - Always restart a stopped conatiner unless the container was stopped explicitly
+3) **unless-stopped** - Restart the container unless the conatiner was in stopped state before the docker daemon was stopped
+4) **on-failure** - Restart the container if it exited with a non-zero exit code or if the docker daemon restarts  
+
+docker conatiner run --name _containername_ --restart **always** imagename  - to deploy container with restart policy of always  
+docker container run --name _containername_ --restart **unless-stopped** imagename - to deploy container with restart policy of unless-stopped  
+docker conatiner run --name _containername_ --restart **on-failure** imagename - to deploy container with restart policy of on-failure  
+ 
